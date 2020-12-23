@@ -1,0 +1,2 @@
+variable	temperature equal 330.0
+variable	tempDamp equal 0.1

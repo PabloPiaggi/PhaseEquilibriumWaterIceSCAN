@@ -1,0 +1,16 @@
+echo both
+
+log             log.lammps append
+include		in.temp
+include		in.pressure
+include		in.seed
+units		metal
+atom_style	atomic
+include		in.box
+include 	in.setup
+
+timer           timeout 23:50:00 every 1000
+
+fix             1 all plumed plumedfile plumed.dat outfile plumed.out
+
+rerun 		../dump.water every 5000 dump x y z
