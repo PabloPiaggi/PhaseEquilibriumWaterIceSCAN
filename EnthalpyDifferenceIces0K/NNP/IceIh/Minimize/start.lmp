@@ -1,0 +1,32 @@
+echo both
+
+variable	num equal REPLACE
+log             ${num}.log
+include		../in.temp
+include		../in.pressure
+include		../in.seed
+units		metal
+atom_style	atomic
+read_data       ../../1h-${num}.data
+mass		1 15.9994
+mass		2 1.00794
+
+include 	../in.setup
+
+timer           timeout 00:15:00 every 1000
+
+minimize	1.e-8 1.e-10 10000 100000
+
+fix             1 all box/relax aniso 0.0
+minimize	1.e-8 1.e-10 10000 100000
+unfix		1
+
+fix             1 all box/relax aniso 0.0
+minimize	1.e-8 1.e-10 10000 100000
+unfix		1
+
+fix             1 all box/relax aniso 0.0
+minimize	1.e-8 1.e-10 10000 100000
+unfix		1
+
+write_data	min${num}.data

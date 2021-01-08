@@ -1,0 +1,25 @@
+echo both
+
+variable 	a loop 0 1000
+label 		loop
+
+include		in.partitions
+include		in.temp
+include		in.pressure
+include		in.seed
+units		metal
+atom_style	atomic
+read_data       water${a}.lammps-data
+mass		1 15.9994
+mass		2 1.00794
+include 	in.setup
+include         in.dump
+
+fix             1 all plumed plumedfile plumed.dat outfile plumed.out
+run		0
+unfix		1
+
+clear
+
+next 		a
+jump 		SELF loop

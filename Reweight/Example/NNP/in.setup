@@ -1,0 +1,14 @@
+variable	out_freq equal 1
+variable	out_freq2 equal 1
+
+timestep	0.0005
+
+neigh_modify    delay 1 every 1
+
+include		in.deepmd
+
+thermo          ${out_freq}
+thermo_style 	custom step temp pe etotal epair emol press lx ly lz vol
+
+restart 	${out_freq} restart.lmp.${pid} restart2.lmp.${pid}
+

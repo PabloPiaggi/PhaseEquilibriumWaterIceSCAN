@@ -1,0 +1,7 @@
+# This is a deepmd model
+# create groups
+group ox type 1
+group hy type 2
+
+pair_style 	deepmd ../frozen_model.pb
+pair_coeff	
