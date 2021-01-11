@@ -1,4 +1,4 @@
-# Phase equilibirum of water with hexagonal and cubic ice using the SCAN functional
+# Phase equilibrium of water with hexagonal and cubic ice using the SCAN functional
 ## Pablo M. Piaggi, Athanassios Z. Panagiotopoulos, Pablo G. Debenedetti, and Roberto Car
 ### To be submitted to Journal of Chemical Theory and Computation
 
